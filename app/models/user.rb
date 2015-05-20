@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   
-  validates :firs_name,
+  validates :first_name,
   presence: true
   validates :last_name,
   presence: true
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     }
   
   def to_s
-    "#{firs_name} #{last_name} "
+    "#{first_name} #{last_name} "
   end
   
   
