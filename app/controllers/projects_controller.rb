@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize, except: [:show,:index]
   # GET /projects
   def index
     @projects = Project.all
@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
 
     if @project.save
       redirect_to @project, notice: 'Project was successfully created.'
@@ -53,6 +53,17 @@ class ProjectsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def project_params
-      params.require(:project).permit(:user_id, :title, :description)
+      params.require(:project).permit(:title, :description)
     end
+  
+  def authorize
+    if current_user.nil?
+      redirect_to login_url, alert: "Not authorized! Please log in"
+    else
+      if @projects && @projects.user != current_user
+        redirect_to rooth_path, alert: "Not autorized! Only #{@projects.user}  has access to this post."
+      end
+    end
+  end
+  
 end
