@@ -10,5 +10,6 @@ class CreateTickets < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_foreign_key :tickets, :articles
   end
 end
