@@ -1,0 +1,22 @@
+<h2>Tickets</h2>
+<% @project.tickets.each do |ticket| %>
+  <p>
+  <strong>Title:</strong>
+    <%= ticket.title %>
+  </p>
+ 
+  <p>
+ <strong>Description:</strong>
+    <%= ticket.comment %>
+  </p>
+ <strong>Priority:</strong>
+    <%= ticket.priority %>
+  </p>
+ <strong>Status:</strong>
+    <%= ticket.status %>
+  </p>
+ <strong>Rank:</strong>
+    <%= ticket.rank %>
+  </p>
+<% end %>
+ 
