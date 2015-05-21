@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  comment: MyString
+  priority: MyString
+  rank: MyString
+  status: MyString
+  project_id: 
+
+two:
+  title: MyString
+  comment: MyString
+  priority: MyString
+  rank: MyString
+  status: MyString
+  project_id: 
