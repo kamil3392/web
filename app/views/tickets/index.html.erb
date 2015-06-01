@@ -23,10 +23,11 @@
    <td> <%= ticket.status %></td>
 
    <td> <%= ticket.rank %></td>
-    
+      <td> <%= link_to 'Edit', "/projects/#{@project.id}/tickets/#{ticket.id}/edit",:class => 'btn btn-mini btn-info' %></td>
       <td> <%= link_to 'Destroy', [ticket.project, ticket],:class => 'btn btn-mini btn-danger',
                method: :delete,
                data: { confirm: 'Are you sure?' } %></td>
+      
       
       
     </tr>
