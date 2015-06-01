@@ -1,22 +1,30 @@
-<h2>Tickets</h2>
+<h3>Tickets:</h3>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Rank</th>
+    </tr>
+  </thead>
+
+  <tbody >
 <% @project.tickets.each do |ticket| %>
-  <p>
-  <strong>Title:</strong>
-    <%= ticket.title %>
-  </p>
+    <tr>
+    <td><%= ticket.title %></td>
+
+    <td><%= ticket.comment %></td>
  
-  <p>
- <strong>Description:</strong>
-    <%= ticket.comment %>
-  </p>
- <strong>Priority:</strong>
-    <%= ticket.priority %>
-  </p>
- <strong>Status:</strong>
-    <%= ticket.status %>
-  </p>
- <strong>Rank:</strong>
-    <%= ticket.rank %>
-  </p>
+    <td><%= ticket.priority %></td>
+
+   <td> <%= ticket.status %></td>
+
+   <td> <%= ticket.rank %></td>
+    </tr>
 <% end %>
- 
+  </tbody>
+</table>
+ <%= link_to 'Back', projects_path,:class => 'btn btn-mini btn-primary' %> 

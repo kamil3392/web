@@ -46,11 +46,17 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">Web</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "HOME", "/"  %></li>
-            <li><%= link_to 'New Project', new_project_path %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+        <div class="navbar-collapse collapse navbar-responsive-collapse ">
+          <ul class="nav navbar-nav" >
+           <li><%= link_to "Home", "/"  %></li>
+           <li><%= link_to 'Project', projects_path %></li>
+           
+            <% if current_user %> Logged in as <%= current_user.email %>.
+           <li><%= link_to "Log Out", logout_path %></li>
+                   <% else %>
+          <li><%= link_to "Sign Up",signup_path %> </li> 
+          <li>   <%= link_to "Log In", login_path %></li>
+         <% end %>
           </ul>
         </div>
       </div>
@@ -64,19 +70,21 @@
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
+            <h3>Menu</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+           <li class="nav-header"></li>
+             <li><%= link_to 'Project List', projects_path %></li>
+             <% if current_user %>
+             <li><%= link_to 'Users list', users_path %></li>
+             <% else %>
+             <% end %>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2015</p>
+        <p>&copy; Kamil Kapturski 2015</p>
       </footer>
 
     </div> <!-- /container -->

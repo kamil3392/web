@@ -1,2 +1,6 @@
-<h1>HOME PAGE</h1>
+<% if not current_user %>
 
+<center><a href="http://uj-edu-201325.euw1.nitrousbox.com/login/"><img src="http://119.93.24.234/download1/images/preview.gif" alt="LOG IN" /></a></center>
+<% else %>
+<center><a href="http://uj-edu-201325.euw1.nitrousbox.com/projects/new"><img src="http://www.asqalan.ae/news/new_project_logo.jpg" alt="NEW PROJECT" /></a></center>
+<% end %>
