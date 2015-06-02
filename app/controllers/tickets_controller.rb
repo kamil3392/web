@@ -23,6 +23,7 @@ def index
    @ticket.destroy
    redirect_to project_path(@project)
   end
+  
   def edit
     @project= Project.find(params[:project_id])
     @ticket=@project.tickets.find(params[:id])
@@ -39,6 +40,7 @@ def index
       render 'edit'
     end
   end  
+  
   private
   def ticket_params
     params.require(:ticket).permit(:title,:comment,:priority,:rank,:status)

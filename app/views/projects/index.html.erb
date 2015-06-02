@@ -20,9 +20,9 @@
         <td><%= project.user %></td>
         <td><%= project.title %></td>
         <td><%= project.description %></td>
-        <td><%= link_to 'Show', project,:class => 'btn btn-mini btn-info' %></td>
-        <td> <% if current_user && project.user == current_user %> <%= link_to 'Edit', edit_project_path(project),:class => 'btn btn-mini btn-warning' %> <% end %> </td>
-        <td><% if current_user && project.user == current_user %><%= link_to 'Destroy', project,:class => 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
+        <td><%= link_to 'Show Project', project,:class => 'btn btn-mini btn-info' %></td>
+        <td> <% if current_user && project.user == current_user %> <%= link_to 'Edit Project', edit_project_path(project),:class => 'btn btn-mini btn-warning' %> <% end %> </td>
+        <td><% if current_user && project.user == current_user %><%= link_to 'Destroy Project', project,:class => 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>

@@ -14,7 +14,7 @@
     <td> <%= @project.title %></td>
     <td><%= @project.description %></td>
     <td><% if current_user && @project.user == current_user %>
-        <%= link_to 'Edit', edit_project_path(@project),:class => 'btn btn-mini btn-warning' %> 
+      <%= link_to 'Edit Project', edit_project_path(@project),:class => 'btn btn-mini btn-warning' %> 
         <%= link_to 'Tickets list', "#{@project.id}/tickets",:class => 'btn btn-mini btn-info'%> 
         <% end %></td>
   </tr>
@@ -24,29 +24,21 @@
 <h3 >Add New Ticket:</h3>
 <br>
 
-<%= form_for([@project, @project.tickets.build]) do |f| %>
-  <p >
-    <%= f.label :Title %><br>
-    (min 5 char)<br>
-    <%= f.text_field :title %> 
-     
-  </p>
-  <p>
-    <%= f.label :Description %><br>
-    <%= f.text_area :comment %>
-  </p>
-  <p>
-    <%= f.label :Priority %><br>
-    <%= f.text_area :priority %>
-  </p>
-  <p>
-    <%= f.label :Rank %><br>
-    <%= f.text_area :rank %>
-  </p>
-  <p>
-    <%= f.label :Status %><br>
-    <%= f.text_area :status %>
-  </p>
+<%= simple_form_for([@project, @project.tickets.build]) do |f| %>
+
+   
+    <%= f.input :title,label: "Title" %> 
+ 
+    <%= f.input :comment,label: "Description" %><br>
+
+    <%= f.input :priority,collection: 1..10, prompt: "Select priority" %><br>
+  
+
+    <%= f.input :rank,collection: 1..100, prompt: "Select rank" %><br>
+
+<%= f.input :status,collection: ["open","close","active"], prompt: "Select status" %><br>
+ 
+ 
   <p>
     <% if current_user && @project.user == current_user %>
     <%= f.submit %>

@@ -1,20 +1,10 @@
-<%= form_for([@project, @ticket]) do |f| %>
-<p>
-  <%= f.label :Title %><br>
- <%= f.text_field :title %>
-</p>
-<p>
-<%= f.label :Description %><br>
- <%= f.text_field :comment %>
-</p>
-<p>
-<%= f.label :Status %><br>
- <%= f.text_field :status %>
-</p>
-<p>
-<%= f.label :Rank %><br>
- <%= f.text_field :rank %>
-</p>
+<%= simple_form_for([@project, @ticket]) do |f| %>
+
+<%= f.input :title ,label: "Title"%>
+<%= f.input :comment,label: "Description" %>
+
+<%= f.input :rank,collection: 1..100, prompt: "Select rank" %>
+<%= f.input :status,collection: ["open","close","active"], prompt: "Select status" %>
 
 <br>
 <br>
