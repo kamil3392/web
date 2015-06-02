@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
 def show
     @project= Project.find(params[:project_id])
-  @ticket=@project.tickets.find(params[:project_id])
+  @ticket=@project.tickets
 
   end
 def index

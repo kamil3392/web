@@ -27,7 +27,9 @@
 <%= form_for([@project, @project.tickets.build]) do |f| %>
   <p >
     <%= f.label :Title %><br>
-    <%= f.text_field :title %>
+    (min 5 char)<br>
+    <%= f.text_field :title %> 
+     
   </p>
   <p>
     <%= f.label :Description %><br>
